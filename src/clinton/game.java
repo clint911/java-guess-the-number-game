@@ -19,9 +19,9 @@ public class game extends JFrame {
 
         private JPanel contentPane;
         private JTextField playerGuess;
-        private JTextField firstGuessHistory;
-        private JTextField secondGuessHistory;
-        private JTextField thirdGuessHistory;
+        private JTextField textField1;
+        private JTextField textField2;
+        private JTextField textField3;
         private JTextField winMessage;
         int round = 1;
 
@@ -68,8 +68,19 @@ public class game extends JFrame {
             checkMe.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     int randomNum =(int) Math.floor(Math.random()*10);
+                    //add  a loop to obtain input to an array for verification and then send the items of
+                    //the array to specific index to a specific textField
+                    int[] arrayOfGuesses = new int[4];
                     int input = Integer.valueOf(playerGuess.getText()).intValue();
-
+                    //adding the input to the array
+                    // arrayOfGuesses[0] = input;
+                    //using a for loop to iterate through the input and set item to index i
+                    for (int i = 0; i < 4; i++) {
+                        arrayOfGuesses[i] = input;
+                    }
+                    //adding a loop to to the input to check if user is right at every iteration stop,
+                    //if user is wrong, go again for another iteration and store the info at the index of
+                    //a specific index in our array and then setText() to a specific textField 
                     if(input>=0 && input<=100) {
                         if(input == randomNum) {
                             winMessage.setText("Congratulations you won!");
@@ -88,6 +99,7 @@ public class game extends JFrame {
 //                       // for (round = 1; round < 4; round ++) {
 //                            //performing the checks inside of loop and adding number too the next textfield
 //                        }
+                        //correct the guess history to be elements of the array at specific index
                         if(round == 1) {firstGuessHistory.setText("You guessed "+input);
                         }
                         else if(round == 2) {secondGuessHistory.setText("You guessed "+input);
@@ -121,25 +133,25 @@ public class game extends JFrame {
             restart.setBounds(277, 184, 86, 34);
             contentPane.add(restart);
 
-            firstGuessHistory = new JTextField();
-            firstGuessHistory.setEditable(false);
-            firstGuessHistory.setBounds(85, 235, 236, 28);
-            contentPane.add(firstGuessHistory);
-            firstGuessHistory.setColumns(10);
+         JTextField   textField1 = new JTextField();
+             textField1.setEditable(false);
+             textField1.setBounds(85, 235, 236, 28);
+            contentPane.add(textField1);
+            textField1.setColumns(10);
 
-            secondGuessHistory = new JTextField();
-            secondGuessHistory.setEditable(false);
-            secondGuessHistory.setBounds(85, 264, 236, 28);
-            contentPane.add(secondGuessHistory);
-            secondGuessHistory.setColumns(10);
+            JTextField textField2 = new JTextField();
+            textField2.setEditable(false);
+            textField2.setBounds(85, 264, 236, 28);
+            contentPane.add(textField2);
+            textField2.setColumns(10);
 
-            thirdGuessHistory = new JTextField();
-            thirdGuessHistory.setEditable(false);
-            thirdGuessHistory.setBounds(85, 294, 236, 28);
-            contentPane.add(thirdGuessHistory);
-            thirdGuessHistory.setColumns(10);
+            JTextField textField3 = new JTextField();
+            textField3.setEditable(false);
+            textField3.setBounds(85, 294, 236, 28);
+            contentPane.add(textField3);
+            textField3.setColumns(10);
 
-            winMessage = new JTextField();
+            JTextField winMessage = new JTextField();
             winMessage.setEditable(false);
             winMessage.setBackground(new Color(207, 201, 69));
             winMessage.setForeground(new Color(128, 0, 64));
