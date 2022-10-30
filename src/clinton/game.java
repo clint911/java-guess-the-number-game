@@ -67,7 +67,7 @@ public class game extends JFrame {
             JButton checkMe = new JButton("Check Me");
             checkMe.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    int randomNum =(int) Math.floor(Math.random()*10);
+                    int randomNum =(int) Math.floor(Math.random()*100);
                     int input = Integer.valueOf(playerGuess.getText()).intValue();
 
                     if(input>=0 && input<=100) {
