@@ -120,6 +120,8 @@ public class game extends JFrame {
             JButton restart = new JButton("Restart");
             restart.setBounds(277, 184, 86, 34);
             contentPane.add(restart);
+            
+
 
             firstGuessHistory = new JTextField();
             firstGuessHistory.setEditable(false);
